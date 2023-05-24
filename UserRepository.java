@@ -10,4 +10,6 @@ import com.project.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Serializable> {
 
+	public User getDataById(Integer id);
+
 }

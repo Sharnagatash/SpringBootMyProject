@@ -1,32 +1,27 @@
 package com.project.model;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-/* @author - Prathamesh
- * 
+/*@author name - prathamesh
  * 
  */
+
 @Entity
-@Table(name = "user")
+@Table(name="user1")
 public class User {
-
-	// id, firstname, lastname, policy name, policy status
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy =GenerationType.IDENTITY )
 	private int id;
-	private String fistname;
-	private String lastname;
-	private String policyname;
-	private String policystatus;
-
-	@OneToMany(mappedBy = "nomineeid")
-	private List<Nominee> nomineelist;
+	private String name;
+	private String city;
+	
+	@OneToOne(targetEntity = Transection.class, cascade = CascadeType.ALL)
+	private Transection transection;
 
 	public int getId() {
 		return id;
@@ -36,44 +31,30 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFistname() {
-		return fistname;
+	public String getName() {
+		return name;
 	}
 
-	public void setFistname(String fistname) {
-		this.fistname = fistname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getCity() {
+		return city;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getPolicyname() {
-		return policyname;
+	public Transection getTransection() {
+		return transection;
 	}
 
-	public void setPolicyname(String policyname) {
-		this.policyname = policyname;
+	public void setTransection(Transection transection) {
+		this.transection = transection;
 	}
-
-	public String getPolicystatus() {
-		return policystatus;
-	}
-
-	public void setPolicystatus(String policystatus) {
-		this.policystatus = policystatus;
-	}
-
-	public List<Nominee> getNomineelist() {
-		return nomineelist;
-	}
-
-	public void setNomineelist(List<Nominee> nomineelist) {
-		this.nomineelist = nomineelist;
-	}
+	
+	
 
 }
