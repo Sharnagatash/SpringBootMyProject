@@ -4,6 +4,6 @@ import com.project.model.User;
 
 public interface UserService {
 
-	public User getDataById(Integer id);
+	public User updateDataById(User user);
 
 }
