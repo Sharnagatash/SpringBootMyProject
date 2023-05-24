@@ -1,8 +1,7 @@
 package com.project.service;
 
-import com.project.model.PoliciesD;
+import com.project.model.PremiumD;
 
 public interface PDService {
-	public PoliciesD getPoliciesDById(PoliciesD policiesD);
-
+public PremiumD savePremiumD(PremiumD premiumD);
 }
